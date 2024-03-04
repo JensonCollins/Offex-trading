@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import WrapProvider from "@/components/WrapProvider";
+import WrapProvider from "@/components/wrapProvider";
+import "@rainbow-me/rainbowkit/styles.css";
 import "./globals.css";
-import '@rainbow-me/rainbowkit/styles.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,11 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <WrapProvider>
-          {children}
-        </WrapProvider>
+    <html lang="en" className="dark">
+      <body className={inter.className + " h-screen"}>
+        <WrapProvider>{children}</WrapProvider>
       </body>
     </html>
   );
