@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 
 export const MenuItem = ({
- setActive,
- active,
- item,
+  setActive,
+  active,
+  item,
 }: {
   setActive: (item: string) => void;
   active: string | null;
@@ -15,7 +15,10 @@ export const MenuItem = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <div onMouseEnter={() => setActive(item)} className={`relative ${item === "Exchange" ? "font-bold" : ""}`}>
+    <div
+      onMouseEnter={() => setActive(item)}
+      className={`relative ${item === "Exchange" ? "font-bold" : ""}`}
+    >
       <motion.p
         transition={{ duration: 0.3 }}
         className="cursor-pointer text-black text-xs hover:opacity-[0.9] dark:text-white"
@@ -27,10 +30,10 @@ export const MenuItem = ({
 };
 
 export const Menu = ({
-   setActive,
-   children,
-   className
- }: {
+  setActive,
+  children,
+  className,
+}: {
   setActive: (item: string | null) => void;
   children: React.ReactNode;
   className?: string;
@@ -38,7 +41,10 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className={cn("relative bg-gradient-to-br from-white/10 to-white/5 flex justify-between items-center space-x-4 px-6 py-4", className)}
+      className={cn(
+        "relative bg-gradient-to-br from-white/10 to-white/5 flex justify-between items-center space-x-4 px-6 py-4",
+        className,
+      )}
     >
       {children}
     </nav>

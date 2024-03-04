@@ -18,8 +18,8 @@
 
 body {
   background-image: linear-gradient(180deg, #111827 0%, #171717 100%),
-  linear-gradient(180deg, #111827 0%, #18181B 100%),
-  linear-gradient(180deg, #111827 0%, #000000 100%);
+    linear-gradient(180deg, #111827 0%, #18181b 100%),
+    linear-gradient(180deg, #111827 0%, #000000 100%);
   background-size: cover; /* Ensures the background covers the entire viewport */
 }
 

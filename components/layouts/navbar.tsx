@@ -6,47 +6,44 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Metamask from "@/components/icons/metamask";
 import { ThemeSwitch } from "@/components/themeSwitch";
 
-export default function Navbar({className}: { className?: string }) {
+export default function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
-    <div
-      className={cn("fixed inset-x-0 w-full mx-auto z-50 px-6", className)}
-    >
+    <div className={cn("fixed inset-x-0 w-full mx-auto z-50 px-6", className)}>
       <Menu setActive={setActive}>
         <div className="flex items-center justify-between space-x-6">
           <Logo />
-          <MenuItem setActive={setActive} active={active} item="Exchange"/>
-          <MenuItem setActive={setActive} active={active} item="Pools"/>
-          <MenuItem setActive={setActive} active={active} item="Dashboard"/>
+          <MenuItem setActive={setActive} active={active} item="Exchange" />
+          <MenuItem setActive={setActive} active={active} item="Pools" />
+          <MenuItem setActive={setActive} active={active} item="Dashboard" />
         </div>
         <div className="flex items-center justify-between space-x-6">
           <ConnectButton.Custom>
             {({
-                account,
-                chain,
-                openAccountModal,
-                openChainModal,
-                openConnectModal,
-                authenticationStatus,
-                mounted,
-              }) => {
-
-              const ready = mounted && authenticationStatus !== 'loading';
+              account,
+              chain,
+              openAccountModal,
+              openChainModal,
+              openConnectModal,
+              authenticationStatus,
+              mounted,
+            }) => {
+              const ready = mounted && authenticationStatus !== "loading";
               const connected =
                 ready &&
                 account &&
                 chain &&
                 (!authenticationStatus ||
-                  authenticationStatus === 'authenticated');
+                  authenticationStatus === "authenticated");
 
               return (
                 <div
                   {...(!ready && {
-                    'aria-hidden': true,
-                    'style': {
+                    "aria-hidden": true,
+                    style: {
                       opacity: 0,
-                      pointerEvents: 'none',
-                      userSelect: 'none',
+                      pointerEvents: "none",
+                      userSelect: "none",
                     },
                   })}
                 >
@@ -68,7 +65,7 @@ export default function Navbar({className}: { className?: string }) {
                     }
 
                     return (
-                      <div style={{ display: 'flex', gap: 16 }}>
+                      <div style={{ display: "flex", gap: 16 }}>
                         <button
                           onClick={openChainModal}
                           className="flex items-center text-[#60A5FA] text-xs"
@@ -81,13 +78,13 @@ export default function Navbar({className}: { className?: string }) {
                                 width: 12,
                                 height: 12,
                                 borderRadius: 999,
-                                overflow: 'hidden',
+                                overflow: "hidden",
                                 marginRight: 4,
                               }}
                             >
                               {chain.iconUrl && (
                                 <img
-                                  alt={chain.name ?? 'Chain icon'}
+                                  alt={chain.name ?? "Chain icon"}
                                   src={chain.iconUrl}
                                   style={{ width: 12, height: 12 }}
                                 />
@@ -97,7 +94,11 @@ export default function Navbar({className}: { className?: string }) {
                           {chain.name}
                         </button>
 
-                        <button onClick={openAccountModal} type="button" className="flex items-center text-xs text-[#60A5FA]">
+                        <button
+                          onClick={openAccountModal}
+                          type="button"
+                          className="flex items-center text-xs text-[#60A5FA]"
+                        >
                           <Metamask />
                           {account.displayName}
                         </button>
@@ -108,7 +109,7 @@ export default function Navbar({className}: { className?: string }) {
               );
             }}
           </ConnectButton.Custom>
-          <ThemeSwitch/>
+          <ThemeSwitch />
         </div>
       </Menu>
     </div>

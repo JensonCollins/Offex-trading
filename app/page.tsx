@@ -8,9 +8,9 @@ import Selector from "@/components/layouts/selector";
 export default function Home() {
   return (
     <>
-      <Navbar className="top-4"/>
+      <Navbar className="top-4" />
       <Selector />
-      <Footer className="bottom-4"/>
+      <Footer className="bottom-4" />
     </>
   );
 }
