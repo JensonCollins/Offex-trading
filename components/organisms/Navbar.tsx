@@ -23,4 +23,4 @@ export const Navbar = ({ className }: { className?: string }) => {
       </Menu>
     </div>
   );
-}
+};

@@ -6,21 +6,20 @@ export const CustomConnectButton = () => {
   return (
     <ConnectButton.Custom>
       {({
-          account,
-          chain,
-          openAccountModal,
-          openChainModal,
-          openConnectModal,
-          authenticationStatus,
-          mounted,
-        }) => {
+        account,
+        chain,
+        openAccountModal,
+        openChainModal,
+        openConnectModal,
+        authenticationStatus,
+        mounted,
+      }) => {
         const ready = mounted && authenticationStatus !== "loading";
         const connected =
           ready &&
           account &&
           chain &&
-          (!authenticationStatus ||
-            authenticationStatus === "authenticated");
+          (!authenticationStatus || authenticationStatus === "authenticated");
 
         return (
           <div
@@ -36,7 +35,11 @@ export const CustomConnectButton = () => {
             {(() => {
               if (!connected) {
                 return (
-                  <button onClick={openConnectModal} type="button" className="text-xs text-white">
+                  <button
+                    onClick={openConnectModal}
+                    type="button"
+                    className="text-xs text-white"
+                  >
                     Connect Wallet
                   </button>
                 );
@@ -95,5 +98,5 @@ export const CustomConnectButton = () => {
         );
       }}
     </ConnectButton.Custom>
-  )
-}
+  );
+};
