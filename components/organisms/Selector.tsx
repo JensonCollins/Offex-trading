@@ -1,9 +1,9 @@
 import React from "react";
-import { Button } from "@/components/ui/moving-border";
-import Gas from "@/components/icons/gas";
-import Settings from "@/components/icons/settings";
-import Ethereum from "@/components/icons/ethereum";
-import { Meteors } from "@/components/ui/meteors";
+import { Button } from "@/components/atoms/MovingBorder";
+import Gas from "@/components/atoms/icons/Gas";
+import Settings from "@/components/atoms/icons/Settings";
+import Ethereum from "@/components/atoms/icons/Ethereum";
+import { Meteors } from "@/components/atoms/Meteors";
 
 export default function Selector() {
   return (

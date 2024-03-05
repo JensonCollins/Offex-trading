@@ -1,4 +1,4 @@
-import useDarkMode from "@/components/useDarkMode";
+import useDarkMode from "@/components/hooks/useDarkMode";
 
 export const ThemeSwitch = () => {
   const [theme, setTheme] = useDarkMode();

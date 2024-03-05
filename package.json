@@ -9,7 +9,9 @@
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml}\"",
     "check": "prettier --check \"**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml}\"",
-    "prepare": "husky"
+    "prepare": "husky",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@rainbow-me/rainbowkit": "^2.0.1",
@@ -24,6 +26,14 @@
     "wagmi": "^2.5.7"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/nextjs": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/test": "^7.6.17",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -31,10 +41,12 @@
     "encoding": "^0.1.13",
     "eslint": "^8",
     "eslint-config-next": "14.1.1",
+    "eslint-plugin-storybook": "^0.8.0",
     "husky": "^9.0.11",
     "pino-pretty": "^10.3.1",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
+    "storybook": "^7.6.17",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

@@ -6,13 +6,13 @@ import {
   RainbowKitProvider,
 } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
-import { mainnet } from "wagmi/chains";
+import { arbitrum, avalanche, bsc, mainnet, optimism, polygon } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 const config = getDefaultConfig({
   appName: "Offex",
   projectId: "YOUR_PROJECT_ID",
-  chains: [mainnet],
+  chains: [mainnet, polygon, avalanche, optimism, arbitrum, bsc],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 

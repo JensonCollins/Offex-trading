@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Navbar from "@/components/layouts/navbar";
-import Footer from "@/components/layouts/footer";
-import Selector from "@/components/layouts/selector";
+import Footer from "@/components/organisms/Footer";
+import Selector from "@/components/organisms/Selector";
+import { Navbar } from "@/components/organisms/Navbar";
 
 export default function Home() {
   return (

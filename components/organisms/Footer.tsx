@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { cn } from "@/utils/cn";
-import { Menu, MenuItem } from "@/components/ui/navbar-menu";
-import Logo from "@/components/ui/logo";
+import { Menu, MenuItem } from "@/components/molecules/NavbarMenu";
+import Logo from "@/components/atoms/Logo";
 
 export default function Footer({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
