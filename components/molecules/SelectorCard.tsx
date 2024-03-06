@@ -147,7 +147,9 @@ export const SelectorCard = ({
                   }
                 />
               ) : (
-                <span className="text-white text-xl">{amount.toFixed(DECIMAL_FACTOR)}</span>
+                <span className="text-white text-xl">
+                  {amount.toFixed(DECIMAL_FACTOR)}
+                </span>
               )}
             </div>
           </div>
