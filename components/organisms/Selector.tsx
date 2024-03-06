@@ -31,8 +31,7 @@ export default function Selector() {
             isSendChain={true}
             chainId={sellChainId}
             setChainId={(chainId) => {
-              if (chainId !== buyChainId)
-                setSellChainId(chainId);
+              if (chainId !== buyChainId) setSellChainId(chainId);
             }}
             currency={sellCurrency}
             setCurrency={setSellCurrency}
@@ -44,8 +43,7 @@ export default function Selector() {
             title="Buying"
             chainId={buyChainId}
             setChainId={(chainId) => {
-              if (chainId !== sellChainId)
-                setBuyChainId(chainId);
+              if (chainId !== sellChainId) setBuyChainId(chainId);
             }}
             currency={buyCurrency}
             setCurrency={setBuyCurrency}

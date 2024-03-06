@@ -9,16 +9,6 @@ export const SUPPORT_CURRENCIES = [
     address: "0x0000000000000000000000000000000000000000",
   },
   {
-    name: "USDC",
-    symbol: "USDC",
-    address: "0x0000000000000000000000000000000000000000",
-  },
-  {
-    name: "USDT",
-    symbol: "USDT",
-    address: "0x0000000000000000000000000000000000000000",
-  },
-  {
     name: "DAI",
     symbol: "DAI",
     address: "0x0000000000000000000000000000000000000000",
