@@ -15,7 +15,7 @@ export const Navbar = ({ className }: { className?: string }) => {
       )}
     >
       <Menu setActive={setActive}>
-        <div className="flex items-center justify-between space-x-6">
+        <div className="flex items-center justify-between space-x-3 md:space-x-6">
           <Logo />
           <MenuItem setActive={setActive} active={active} item="Exchange" />
           <MenuItem setActive={setActive} active={active} item="Pools" />

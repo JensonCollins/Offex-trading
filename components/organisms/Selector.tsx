@@ -30,7 +30,10 @@ export default function Selector() {
             title="Selling"
             isSendChain={true}
             chainId={sellChainId}
-            setChainId={setSellChainId}
+            setChainId={(chainId) => {
+              if (chainId !== buyChainId)
+                setSellChainId(chainId);
+            }}
             currency={sellCurrency}
             setCurrency={setSellCurrency}
             amount={inputAmount}
@@ -40,7 +43,10 @@ export default function Selector() {
           <SelectorCard
             title="Buying"
             chainId={buyChainId}
-            setChainId={setBuyChainId}
+            setChainId={(chainId) => {
+              if (chainId !== sellChainId)
+                setBuyChainId(chainId);
+            }}
             currency={buyCurrency}
             setCurrency={setBuyCurrency}
             amount={data?.outputAmount || 0}

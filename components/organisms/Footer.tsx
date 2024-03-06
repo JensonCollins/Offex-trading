@@ -16,7 +16,7 @@ export default function Footer({ className }: { className?: string }) {
         <div className="flex items-center justify-between space-x-6">
           <Logo />
         </div>
-        <div className="flex items-center justify-between space-x-6">
+        <div className="flex items-center justify-between space-x-3 md:space-x-6">
           <MenuItem setActive={setActive} active={active} item="Docs" />
           <MenuItem setActive={setActive} active={active} item="Analytics" />
           <MenuItem

@@ -61,7 +61,7 @@ export const CustomConnectButton = () => {
                 <div style={{ display: "flex", gap: 16 }}>
                   <button
                     onClick={openChainModal}
-                    className="flex items-center text-[#60A5FA] text-xs"
+                    className="hidden md:flex items-center text-[#60A5FA] text-xs"
                     type="button"
                   >
                     {chain.hasIcon && (

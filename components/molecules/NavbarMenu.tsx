@@ -42,7 +42,7 @@ export const Menu = ({
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
       className={cn(
-        "relative bg-gradient-to-br from-white/10 to-white/5 flex justify-between items-center space-x-4 px-6 py-4",
+        "relative bg-gradient-to-br from-white/10 to-white/5 flex justify-between items-center space-x-4 px-4 md:px-6 py-4",
         className,
       )}
     >
