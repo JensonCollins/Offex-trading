@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/cn";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
@@ -38,7 +38,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       >
         <input
           type={type}
-          onKeyDown={(e) => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault()}
+          onKeyDown={(e) =>
+            ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
+          }
           className={cn(
             `flex w-full border-none text-white shadow-input pl-3 text-xl file:border-0 file:bg-transparent 
           file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600  
@@ -46,14 +48,14 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
            ring-0 focus:ring-0 focus:outline-none
            group-hover/input:shadow-none transition duration-400
            `,
-            className
+            className,
           )}
           ref={ref}
           {...props}
         />
       </motion.div>
     );
-  }
+  },
 );
 Input.displayName = "Input";
 

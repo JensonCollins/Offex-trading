@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/cn";
 import { Menu, MenuItem } from "@/components/molecules/NavbarMenu";
 import Logo from "@/components/atoms/Logo";
 

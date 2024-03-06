@@ -30,7 +30,7 @@ export const Ethereum = () => {
       />
     </svg>
   );
-}
+};
 
 export const Gas = () => {
   return (
@@ -47,7 +47,7 @@ export const Gas = () => {
       />
     </svg>
   );
-}
+};
 
 export const Metamask = () => {
   return (
@@ -109,7 +109,7 @@ export const Metamask = () => {
       />
     </svg>
   );
-}
+};
 
 export const Settings = () => {
   return (
@@ -132,12 +132,18 @@ export const Settings = () => {
       </g>
     </svg>
   );
-}
+};
 
 export const CaretDown = () => {
   return (
-    <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 6.5L8 11.5L4 6.5H12Z" fill="white"/>
+    <svg
+      width="16"
+      height="17"
+      viewBox="0 0 16 17"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M12 6.5L8 11.5L4 6.5H12Z" fill="white" />
     </svg>
-  )
-}
+  );
+};

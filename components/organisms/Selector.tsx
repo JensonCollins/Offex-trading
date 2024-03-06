@@ -16,7 +16,7 @@ export default function Selector() {
   const [buyCurrency, setBuyCurrency] = React.useState<string>("DAI");
   const [inputAmount, setInputAmount] = React.useState<number>(0);
 
-  const { data} = useQuote(sellCurrency, buyCurrency, inputAmount);
+  const { data } = useQuote(sellCurrency, buyCurrency, inputAmount);
 
   return (
     <div className="w-full relative flex items-center justify-center">
@@ -49,7 +49,12 @@ export default function Selector() {
 
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center space-x-2">
-            <QuoteCard title="Equiv." rate="17.48" slippage="0.00%" gasEstimate="$1.23" />
+            <QuoteCard
+              title="Equiv."
+              rate="17.48"
+              slippage="0.00%"
+              gasEstimate="$1.23"
+            />
             <QuoteCard title="Competitor’s Quote" />
           </div>
           <Button

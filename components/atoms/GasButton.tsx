@@ -4,14 +4,14 @@ import { Button } from "@/components/atoms/MovingBorder";
 import { Gas } from "@/components/atoms/Icons";
 
 export const GasButton = () => {
-  const gas = useGasPrice()
+  const gas = useGasPrice();
 
   const formattedGasPrice = useMemo(() => {
     if (gas?.data) {
-      return (Number(gas.data) / 10 ** 9).toFixed(2)
+      return (Number(gas.data) / 10 ** 9).toFixed(2);
     }
     return 0;
-  }, [gas])
+  }, [gas]);
 
   return (
     <Button
@@ -21,5 +21,5 @@ export const GasButton = () => {
       <Gas />
       <span>Gas&nbsp;Price:&nbsp;{formattedGasPrice}&nbsp;Gwei</span>
     </Button>
-  )
-}
+  );
+};

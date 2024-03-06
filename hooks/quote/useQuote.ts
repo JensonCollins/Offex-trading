@@ -1,9 +1,9 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery } from "@tanstack/react-query";
 
 type QuoteResult = {
-  outputAmount: number
-  source: string
-}
+  outputAmount: number;
+  source: string;
+};
 
 /**
  * Gets estimated swap result
@@ -17,19 +17,14 @@ export const useQuote = (
   inputAmount: number,
 ) => {
   return useQuery({
-    queryKey: [
-      "quotes",
-      inputAsset,
-      outputAsset,
-      inputAmount,
-    ],
+    queryKey: ["quotes", inputAsset, outputAsset, inputAmount],
     queryFn: ({ queryKey }) =>
-      fetch(`http://localhost:3008/quote/${queryKey[1]}/${queryKey[2]}?input_amount=${queryKey[3]}`).then((res) =>
-        res.json(),
-      ),
+      fetch(
+        `http://localhost:3008/quote/${queryKey[1]}/${queryKey[2]}?input_amount=${queryKey[3]}`,
+      ).then((res) => res.json()),
     select: (response): QuoteResult => ({
       outputAmount: response.outputAmount,
       source: response.source,
     }),
-  })
-}
+  });
+};

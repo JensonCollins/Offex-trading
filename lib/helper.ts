@@ -1,6 +1,6 @@
 import * as all from "viem/chains";
 
-const { defichainEvm: _,...chains } = all;
+const { defichainEvm: _, ...chains } = all;
 
 export const getChain = (chainId: number) => {
   for (const chain of Object.values(chains)) {
@@ -10,4 +10,4 @@ export const getChain = (chainId: number) => {
   }
 
   throw new Error(`Chain with id ${chainId} not found`);
-}
+};
