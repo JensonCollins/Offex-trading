@@ -24,3 +24,5 @@ export const SUPPORT_CURRENCIES = [
     address: "0x0000000000000000000000000000000000000000",
   },
 ];
+
+export const DECIMAL_FACTOR = 3;

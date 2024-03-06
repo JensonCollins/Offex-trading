@@ -8,9 +8,9 @@ import { Navbar } from "@/components/organisms/Navbar";
 export default function Home() {
   return (
     <>
-      <Navbar className="top-4" />
+      <Navbar className="top-2 md:top-4" />
       <Selector />
-      <Footer className="bottom-4" />
+      <Footer className="bottom-2 md:bottom-4" />
     </>
   );
 }

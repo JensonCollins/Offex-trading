@@ -20,12 +20,12 @@ export default function Selector() {
 
   return (
     <div className="w-full relative flex items-center justify-center">
-      <div className="h-screen w-1/2 relative flex flex-col items-center justify-center space-y-12">
+      <div className="h-screen w-full px-4 lg:px-0 md:w-4/5 lg:w-3/5 xl:w-1/2 relative flex flex-col items-center justify-center space-y-12">
         <div className="flex items-center justify-between w-full">
           <GasButton />
           <Settings />
         </div>
-        <div className="flex justify-between items-center space-x-2 w-full">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0 space-x-0 md:space-x-2 w-full">
           <SelectorCard
             title="Selling"
             isSendChain={true}
@@ -36,7 +36,7 @@ export default function Selector() {
             amount={inputAmount}
             setAmount={setInputAmount}
           />
-          <span className="text-xl text-[#9CA3AF]">X</span>
+          <span className="text-xl hidden md:block text-[#9CA3AF]">X</span>
           <SelectorCard
             title="Buying"
             chainId={buyChainId}
@@ -47,8 +47,8 @@ export default function Selector() {
           />
         </div>
 
-        <div className="flex items-center justify-between w-full">
-          <div className="flex items-center space-x-2">
+        <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 w-full">
+          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 space-x-0 md:space-x-2">
             <QuoteCard
               title="Equiv."
               rate="17.48"

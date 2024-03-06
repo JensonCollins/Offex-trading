@@ -47,7 +47,7 @@ export const CustomConnectButton = () => {
 
               if (chain.unsupported) {
                 return (
-                  <button onClick={openChainModal} type="button">
+                  <button onClick={openChainModal} type="button" className="text-red-600">
                     Wrong network
                   </button>
                 );
@@ -72,6 +72,7 @@ export const CustomConnectButton = () => {
                         }}
                       >
                         {chain.iconUrl && (
+                          // eslint-disable-next-line @next/next/no-img-element
                           <img
                             alt={chain.name ?? "Chain icon"}
                             src={chain.iconUrl}

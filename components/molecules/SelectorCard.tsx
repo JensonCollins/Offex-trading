@@ -2,10 +2,16 @@ import React, { useEffect } from "react";
 import { useAccount, useBalance, useChainId, useSwitchChain } from "wagmi";
 import { CaretDown, Ethereum } from "@/components/atoms/Icons";
 import { Meteors } from "@/components/atoms/Meteors";
-import { CurrencySelect } from "@/components/molecules/CurrencySelect";
-import { NetworkSelect } from "@/components/molecules/NetworkSelect";
-import { getChain } from "@/lib/helper";
 import { Input } from "@/components/atoms/Input";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { DropdownItem } from "@/components/atoms/DropdownItem";
+import { getChain } from "@/lib/helper";
+import { DECIMAL_FACTOR, SUPPORT_CURRENCIES, SUPPORT_NETWORKS } from "@/lib/constant";
 
 interface SelectorCardProps {
   title: string;
@@ -29,8 +35,6 @@ export const SelectorCard = ({
   isSendChain,
 }: SelectorCardProps) => {
   const connectedChainId = useChainId();
-  const [active, setActive] = React.useState<boolean>(false);
-  const [networkActive, setNetworkActive] = React.useState<boolean>(false);
 
   const { switchChain } = useSwitchChain();
   const account = useAccount();
@@ -40,7 +44,11 @@ export const SelectorCard = ({
     chainId: isSendChain ? connectedChainId : chainId,
   });
 
-  const onMaxClick = () => {};
+  const onMaxClick = () => {
+    if (setAmount) {
+      setAmount(Number(Number(result?.data?.formatted).toFixed(6)));
+    }
+  };
 
   useEffect(() => {
     if (isSendChain) {
@@ -55,24 +63,40 @@ export const SelectorCard = ({
         <div className="relative shadow-xl bg-gray-900 border border-gray-800 px-6 py-4 h-full overflow-hidden rounded-none flex flex-col space-y-4 justify-end items-start">
           <div className="flex w-full justify-between items-end px-4 text-white">
             <h6>{title}</h6>
+
             <div className="flex flex-col items-end text-white-600">
               <span className="text-xs text-[#9CA3AF]">Network</span>
-              <div
-                className="flex items-center space-x-2 cursor-pointer"
-                onMouseEnter={() => setNetworkActive(true)}
-              >
-                <Ethereum />
-                <h6>
-                  {getChain(isSendChain ? connectedChainId : chainId).name}
-                </h6>
-              </div>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger className="focus:outline-none focus:ring-0">
+                  <div
+                    className="flex items-center space-x-2 cursor-pointer"
+                  >
+                    <Ethereum/>
+                    <h6>
+                      {getChain(isSendChain ? connectedChainId : chainId).name}
+                    </h6>
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {
+                    SUPPORT_NETWORKS.map((network, index) => {
+                      return (
+                        <DropdownMenuItem key={index}>
+                          <DropdownItem value={network.name} onClick={() => setChainId(network.id)} />
+                        </DropdownMenuItem>
+                      )
+                    })
+                  }
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
 
           <div className="flex flex-col border border-white border-opacity-20 py-3 px-4 space-y-4 w-full">
             <div className="flex items-center justify-between w-full text-xs">
               <span className="text-[#9CA3AF]">
-                Balance: {Number(result?.data?.formatted).toFixed(2)}{" "}
+                Balance: {account.address ? Number(result?.data?.formatted).toFixed(DECIMAL_FACTOR) : 0}{" "}
                 {
                   getChain(isSendChain ? connectedChainId : chainId)
                     .nativeCurrency.symbol
@@ -85,14 +109,29 @@ export const SelectorCard = ({
               )}
             </div>
             <div className="flex items-center justify-between w-full">
-              <div
-                className="flex items-center space-x-2"
-                onMouseEnter={() => setActive(true)}
-              >
-                <Ethereum />
-                <span className="text-white">{currency}</span>
-                <CaretDown />
-              </div>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="focus:outline-none focus:ring-0">
+                  <div
+                    className="flex items-center space-x-2"
+                  >
+                    <Ethereum/>
+                    <span className="text-white">{currency}</span>
+                    <CaretDown/>
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {
+                    SUPPORT_CURRENCIES.map((currency, index) => {
+                      return (
+                        <DropdownMenuItem key={index}>
+                          <DropdownItem value={currency.name} onClick={() => setCurrency(currency.symbol)} />
+                        </DropdownMenuItem>
+                      )
+                    })
+                  }
+                </DropdownMenuContent>
+              </DropdownMenu>
+
               {isSendChain ? (
                 <Input
                   className="text-white border-none bg-transparent text-right"
@@ -112,24 +151,6 @@ export const SelectorCard = ({
           <Meteors number={20} />
         </div>
       </div>
-      <CurrencySelect
-        active={active}
-        setActive={setActive}
-        currency={currency}
-        setCurrency={(value) => {
-          setCurrency(value);
-          setActive(false);
-        }}
-      />
-      <NetworkSelect
-        active={networkActive}
-        setActive={setNetworkActive}
-        chainId={chainId}
-        setChainId={(chainId) => {
-          setChainId(chainId);
-          setNetworkActive(false);
-        }}
-      />
     </>
   );
 };

@@ -16,7 +16,7 @@ export const QuoteCard = ({
   gasEstimate = "-",
 }: QuoteCardProps) => {
   return (
-    <div className="w-60 py-6 px-8 flex flex-col justify-between bg-[#101217] text-[#9CA3AF] text-xs">
+    <div className="w-60 md:w-48 xl:w-60 py-6 px-8 flex flex-col justify-between bg-[#101217] text-[#9CA3AF] text-xs">
       <div className="text-white flex justify-between">
         <span>{title}</span>
         {equiv && <span>{equiv}</span>}

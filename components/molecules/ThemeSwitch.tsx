@@ -4,7 +4,7 @@ export const ThemeSwitch = () => {
   const [theme, setTheme] = useDarkMode();
 
   return (
-    <>
+    <div className="hidden md:block">
       {theme === "light" ? (
         <svg
           onClick={() => setTheme("light")}
@@ -38,6 +38,6 @@ export const ThemeSwitch = () => {
           />
         </svg>
       )}
-    </>
+    </div>
   );
 };
