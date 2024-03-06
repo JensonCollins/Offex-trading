@@ -1,6 +1,6 @@
 import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import Metamask from "@/components/atoms/icons/Metamask";
+import { Metamask } from "@/components/atoms/Icons";
 
 export const CustomConnectButton = () => {
   return (
