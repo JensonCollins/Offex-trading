@@ -5,10 +5,10 @@ const {
 
 const config: Config = {
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -45,7 +45,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [addVariablesForColors,require("tailwindcss-animate")],
+  plugins: [addVariablesForColors, require("tailwindcss-animate")],
 };
 export default config;
 

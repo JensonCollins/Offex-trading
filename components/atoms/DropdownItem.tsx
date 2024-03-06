@@ -9,17 +9,17 @@ interface DropdownItemProps {
 export const DropdownItem = ({
   value,
   className,
-  onClick
+  onClick,
 }: DropdownItemProps) => {
   return (
     <button
       onClick={onClick}
       className={cn(
         "flex items-center justify-center w-full py-1 rounded-lg bg-primary-500 text-white",
-        className
+        className,
       )}
     >
       {value}
     </button>
   );
-}
+};

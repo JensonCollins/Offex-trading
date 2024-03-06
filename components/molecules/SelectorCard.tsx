@@ -8,10 +8,14 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import { DropdownItem } from "@/components/atoms/DropdownItem";
 import { getChain } from "@/lib/helper";
-import { DECIMAL_FACTOR, SUPPORT_CURRENCIES, SUPPORT_NETWORKS } from "@/lib/constant";
+import {
+  DECIMAL_FACTOR,
+  SUPPORT_CURRENCIES,
+  SUPPORT_NETWORKS,
+} from "@/lib/constant";
 
 interface SelectorCardProps {
   title: string;
@@ -69,25 +73,24 @@ export const SelectorCard = ({
 
               <DropdownMenu>
                 <DropdownMenuTrigger className="focus:outline-none focus:ring-0">
-                  <div
-                    className="flex items-center space-x-2 cursor-pointer"
-                  >
-                    <Ethereum/>
+                  <div className="flex items-center space-x-2 cursor-pointer">
+                    <Ethereum />
                     <h6>
                       {getChain(isSendChain ? connectedChainId : chainId).name}
                     </h6>
                   </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {
-                    SUPPORT_NETWORKS.map((network, index) => {
-                      return (
-                        <DropdownMenuItem key={index}>
-                          <DropdownItem value={network.name} onClick={() => setChainId(network.id)} />
-                        </DropdownMenuItem>
-                      )
-                    })
-                  }
+                  {SUPPORT_NETWORKS.map((network, index) => {
+                    return (
+                      <DropdownMenuItem key={index}>
+                        <DropdownItem
+                          value={network.name}
+                          onClick={() => setChainId(network.id)}
+                        />
+                      </DropdownMenuItem>
+                    );
+                  })}
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -96,7 +99,10 @@ export const SelectorCard = ({
           <div className="flex flex-col border border-white border-opacity-20 py-3 px-4 space-y-4 w-full">
             <div className="flex items-center justify-between w-full text-xs">
               <span className="text-[#9CA3AF]">
-                Balance: {account.address ? Number(result?.data?.formatted).toFixed(DECIMAL_FACTOR) : 0}{" "}
+                Balance:{" "}
+                {account.address
+                  ? Number(result?.data?.formatted).toFixed(DECIMAL_FACTOR)
+                  : 0}{" "}
                 {
                   getChain(isSendChain ? connectedChainId : chainId)
                     .nativeCurrency.symbol
@@ -111,24 +117,23 @@ export const SelectorCard = ({
             <div className="flex items-center justify-between w-full">
               <DropdownMenu>
                 <DropdownMenuTrigger className="focus:outline-none focus:ring-0">
-                  <div
-                    className="flex items-center space-x-2"
-                  >
-                    <Ethereum/>
+                  <div className="flex items-center space-x-2">
+                    <Ethereum />
                     <span className="text-white">{currency}</span>
-                    <CaretDown/>
+                    <CaretDown />
                   </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {
-                    SUPPORT_CURRENCIES.map((currency, index) => {
-                      return (
-                        <DropdownMenuItem key={index}>
-                          <DropdownItem value={currency.name} onClick={() => setCurrency(currency.symbol)} />
-                        </DropdownMenuItem>
-                      )
-                    })
-                  }
+                  {SUPPORT_CURRENCIES.map((currency, index) => {
+                    return (
+                      <DropdownMenuItem key={index}>
+                        <DropdownItem
+                          value={currency.name}
+                          onClick={() => setCurrency(currency.symbol)}
+                        />
+                      </DropdownMenuItem>
+                    );
+                  })}
                 </DropdownMenuContent>
               </DropdownMenu>
 
