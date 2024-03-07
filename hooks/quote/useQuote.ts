@@ -20,7 +20,7 @@ export const useQuote = (
     queryKey: ["quotes", inputAsset, outputAsset, inputAmount],
     queryFn: ({ queryKey }) =>
       fetch(
-        `http://localhost:3008/quote/${queryKey[1]}/${queryKey[2]}?input_amount=${queryKey[3]}`,
+        `https://chainway-backend.onrender.com/quote/${queryKey[1]}/${queryKey[2]}?input_amount=${queryKey[3]}`,
       ).then((res) => res.json()),
     select: (response): QuoteResult => ({
       outputAmount: response.outputAmount,
